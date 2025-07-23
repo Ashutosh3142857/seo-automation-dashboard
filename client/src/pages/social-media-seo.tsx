@@ -184,7 +184,15 @@ export default function SocialMediaSEO() {
                   <Share2 className="w-4 h-4 mr-2" />
                   Optimize & Schedule
                 </Button>
-                <Button variant="outline">
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    toast({
+                      title: "Scheduling Interface",
+                      description: "Opening advanced scheduling options for your post",
+                    });
+                  }}
+                >
                   <Calendar className="w-4 h-4 mr-2" />
                   Schedule Later
                 </Button>
@@ -213,7 +221,18 @@ export default function SocialMediaSEO() {
                     {account.connected ? (
                       <Badge className="bg-green-100 text-green-700">Connected</Badge>
                     ) : (
-                      <Button size="sm" variant="outline">Connect</Button>
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={() => {
+                          toast({
+                            title: "Connecting Account",
+                            description: `Connecting to ${account.platform} - redirecting to authorization`,
+                          });
+                        }}
+                      >
+                        Connect
+                      </Button>
                     )}
                   </div>
                 ))}
@@ -254,10 +273,28 @@ export default function SocialMediaSEO() {
                     </div>
                   </div>
                   <div className="flex space-x-2 ml-4">
-                    <Button size="sm" variant="outline">
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={() => {
+                        toast({
+                          title: "Editing Post",
+                          description: `Opening editor for ${post.platform} post`,
+                        });
+                      }}
+                    >
                       Edit
                     </Button>
-                    <Button size="sm" variant="outline">
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={() => {
+                        toast({
+                          title: "Post Settings",
+                          description: "Opening advanced post settings and scheduling options",
+                        });
+                      }}
+                    >
                       <Settings className="w-3 h-3" />
                     </Button>
                   </div>
