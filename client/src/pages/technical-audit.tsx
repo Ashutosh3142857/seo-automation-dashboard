@@ -152,8 +152,8 @@ export default function TechnicalAudit() {
     }
   };
 
-  const criticalIssues = mockAuditData.issues?.filter(issue => issue.severity === "high").length || 0;
-  const warningIssues = mockAuditData.issues?.filter(issue => issue.severity === "medium").length || 0;
+  const criticalIssues = mockAuditData.issues?.filter((issue: any) => issue.severity === "high").length || 0;
+  const warningIssues = mockAuditData.issues?.filter((issue: any) => issue.severity === "medium").length || 0;
   const overallScore = Math.round((
     (mockAuditData.pageSpeed || 0) + 
     (mockAuditData.mobileScore || 0)
@@ -340,7 +340,7 @@ export default function TechnicalAudit() {
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
-            {mockAuditData.issues?.map((issue, index) => {
+            {mockAuditData.issues?.map((issue: any, index: number) => {
               const IssueIcon = getIssueIcon(issue.type);
               return (
                 <div 
