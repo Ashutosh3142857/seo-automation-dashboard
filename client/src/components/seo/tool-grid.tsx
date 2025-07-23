@@ -10,6 +10,7 @@ import {
   MapPin, 
   Wand2 
 } from "lucide-react";
+import { useLocation } from "wouter";
 
 const seoTools = [
   {
@@ -24,7 +25,8 @@ const seoTools = [
     ],
     progress: 75,
     progressColor: "bg-primary",
-    buttonText: "Review Suggestions"
+    buttonText: "Review Suggestions",
+    route: "/backlinks"
   },
   {
     name: "On-Page SEO",
@@ -38,7 +40,8 @@ const seoTools = [
     ],
     progress: 88,
     progressColor: "bg-green-500",
-    buttonText: "View Recommendations"
+    buttonText: "View Recommendations",
+    route: "/onpage-seo"
   },
   {
     name: "Rank Tracking",
@@ -52,7 +55,8 @@ const seoTools = [
     ],
     progress: 65,
     progressColor: "bg-yellow-500",
-    buttonText: "Generate Report"
+    buttonText: "Generate Report",
+    route: "/rank-tracking"
   },
   {
     name: "Technical Audit",
@@ -66,7 +70,8 @@ const seoTools = [
     ],
     progress: 35,
     progressColor: "bg-red-500",
-    buttonText: "Fix Issues"
+    buttonText: "Fix Issues",
+    route: "/technical-audit"
   },
   {
     name: "Local SEO",
@@ -80,7 +85,8 @@ const seoTools = [
     ],
     progress: 92,
     progressColor: "bg-orange-500",
-    buttonText: "Manage Listings"
+    buttonText: "Manage Listings",
+    route: "/local-seo"
   },
   {
     name: "AI Content",
@@ -94,11 +100,18 @@ const seoTools = [
     ],
     progress: 78,
     progressColor: "bg-indigo-500",
-    buttonText: "Optimize Content"
+    buttonText: "Optimize Content",
+    route: "/content-optimizer"
   }
 ];
 
 export default function ToolGrid() {
+  const [, setLocation] = useLocation();
+
+  const handleToolClick = (route: string) => {
+    setLocation(route);
+  };
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
       {seoTools.map((tool, index) => (
@@ -129,7 +142,11 @@ export default function ToolGrid() {
               
               <Progress value={tool.progress} className="w-full h-2" />
               
-              <Button variant="outline" className="w-full">
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => handleToolClick(tool.route)}
+              >
                 {tool.buttonText}
               </Button>
             </div>
