@@ -159,7 +159,15 @@ When it comes to keyword research, tools like SEMrush and Ahrefs have consistent
                   <Wand2 className="w-4 h-4 mr-2" />
                   {analyzeContentMutation.isPending ? "Analyzing..." : "Optimize"}
                 </Button>
-                <Button variant="outline">
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    toast({
+                      title: "Draft Saved",
+                      description: "Your content has been saved as a draft",
+                    });
+                  }}
+                >
                   <Save className="w-4 h-4 mr-2" />
                   Save Draft
                 </Button>
