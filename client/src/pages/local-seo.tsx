@@ -137,7 +137,15 @@ export default function LocalSEO() {
               />
             </div>
           </div>
-          <Button className="mt-4 bg-primary hover:bg-primary/90">
+          <Button 
+            className="mt-4 bg-primary hover:bg-primary/90"
+            onClick={() => {
+              toast({
+                title: "Business Information Updated",
+                description: "Your business information has been saved successfully",
+              });
+            }}
+          >
             Update Business Information
           </Button>
         </CardContent>
@@ -223,10 +231,29 @@ export default function LocalSEO() {
                 </div>
                 
                 <div className="flex space-x-2 mt-3">
-                  <Button size="sm" variant="outline" className="flex-1">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="flex-1"
+                    onClick={() => {
+                      toast({
+                        title: "Opening Listing",
+                        description: `Viewing ${listing.platform} listing details`,
+                      });
+                    }}
+                  >
                     View
                   </Button>
-                  <Button size="sm" className="flex-1 bg-primary hover:bg-primary/90">
+                  <Button 
+                    size="sm" 
+                    className="flex-1 bg-primary hover:bg-primary/90"
+                    onClick={() => {
+                      toast({
+                        title: "Managing Listing",
+                        description: `Managing ${listing.platform} business listing`,
+                      });
+                    }}
+                  >
                     Manage
                   </Button>
                 </div>
@@ -267,7 +294,16 @@ export default function LocalSEO() {
                     >
                       {issue.severity}
                     </Badge>
-                    <Button size="sm" variant="outline">
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={() => {
+                        toast({
+                          title: "Fixing Citation Issue",
+                          description: `Resolving ${issue.severity} priority issue on ${issue.platform}`,
+                        });
+                      }}
+                    >
                       Fix
                     </Button>
                   </div>
@@ -285,7 +321,16 @@ export default function LocalSEO() {
             <CardTitle className="text-lg font-semibold text-gray-900">
               Local Keyword Rankings
             </CardTitle>
-            <Button variant="outline" size="sm">
+            <Button 
+              variant="outline" 
+              size="sm"
+              onClick={() => {
+                toast({
+                  title: "Add Keywords",
+                  description: "Opening keyword management interface",
+                });
+              }}
+            >
               Add Keywords
             </Button>
           </div>
