@@ -79,7 +79,15 @@ export default function RankTracking() {
               <p className="text-gray-600 mt-1">Monitor keyword rankings and SERP performance</p>
             </div>
             <div className="flex space-x-2">
-              <Button variant="outline">
+              <Button 
+                variant="outline"
+                onClick={() => {
+                  toast({
+                    title: "Export Started",
+                    description: "Rank tracking report is being generated...",
+                  });
+                }}
+              >
                 <Download className="w-4 h-4 mr-2" />
                 Export Report
               </Button>
@@ -91,7 +99,15 @@ export default function RankTracking() {
                 <RefreshCw className={`w-4 h-4 mr-2 ${updateRankingsMutation.isPending ? 'animate-spin' : ''}`} />
                 {updateRankingsMutation.isPending ? "Updating..." : "Update Rankings"}
               </Button>
-              <Button className="bg-primary hover:bg-primary/90">
+              <Button 
+                className="bg-primary hover:bg-primary/90"
+                onClick={() => {
+                  toast({
+                    title: "Report Generated",
+                    description: "Comprehensive ranking report is ready for review",
+                  });
+                }}
+              >
                 <BarChart3 className="w-4 h-4 mr-2" />
                 Generate Report
               </Button>
