@@ -98,8 +98,8 @@ export const api = {
     return res.json();
   },
 
-  discoverBacklinks: async (websiteId: number, data: { domain: string; keywords: string[]; industry: string }): Promise<Backlink[]> => {
-    const res = await apiRequest("POST", `/api/backlinks/${websiteId}/discover`, data);
+  discoverBacklinkOpportunities: async (data: { domain: string; targetKeywords: string[]; niche: string }): Promise<{ opportunities: any[] }> => {
+    const res = await apiRequest("POST", "/api/backlinks/discover", data);
     return res.json();
   },
 
@@ -153,10 +153,6 @@ export const api = {
   },
 
   // Automation Features
-  discoverBacklinkOpportunities: async (data: { domain: string; targetKeywords: string[]; niche: string }) => {
-    const res = await apiRequest("POST", "/api/backlinks/discover", data);
-    return res.json();
-  },
 
   optimizeContent: async (data: { content: string; targetKeywords: string[] }) => {
     const res = await apiRequest("POST", "/api/content/optimize", data);
